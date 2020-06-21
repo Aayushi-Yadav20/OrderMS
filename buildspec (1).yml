@@ -2,10 +2,10 @@ version: 0.2
 
 env:
   secrets-manager:
-    LOGIN: usersonarcredentials:sonartoken
-    HOST: usersonarcredentials:host
-    Organization: usersonarcredentials:organization
-    Project: usersonarcredentials:projectKey
+    LOGIN: OrderSecret:sonartoken
+    HOST: OrderSecret:host
+    Organization: OrderSecret:organization
+    Project: OrderSecret:projectKey
 
 phases:
   install:
@@ -16,7 +16,7 @@ phases:
       - echo Logging into Amazon ECR
       - aws --version
       - $(aws ecr get-login --no-include-email --region ap-south-1)
-      - REPOSITORY_URI=736930694181.dkr.ecr.ap-south-1.amazonaws.com/userservicerepo
+      - REPOSITORY_URI=675357897426.dkr.ecr.ap-south-1.amazonaws.com/order-ms
       - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
       - IMAGE_TAG=build-$(echo $CODEBUILD_BUILD_ID | awk -F":" '{print $2}')
       - wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-3.3.0.1492-linux.zip
@@ -43,6 +43,6 @@ phases:
       - docker push $REPOSITORY_URI:latest
       - docker push $REPOSITORY_URI:$IMAGE_TAG
       - echo Writing image definitions file...
-      - printf '[{"name":"userContainer","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
+      - printf '[{"name":"orderContainer","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
 artifacts:
     files: imagedefinitions.json
