@@ -8,7 +8,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>Order-Microservice</name>
+	<name>OrderMS</name>
 	<description>OrderManagement Microservice</description>
 
 	<parent>
@@ -103,5 +103,5 @@
 </repository>
 
 </repositories>
-	<artifactId>Order</artifactId>
+	<artifactId>OrderMS</artifactId>
 </project>
