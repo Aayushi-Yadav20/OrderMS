@@ -1,0 +1,7 @@
+organization=aayushi-yadav20
+projectKey=Aayushi-Yadav20_OrderMS
+serverUrl=https://sonarcloud.io
+serverVersion=8.0.0.8830
+dashboardUrl=https://sonarcloud.io/dashboard?id=Aayushi-Yadav20_OrderMS
+ceTaskId=AXLWYwdTosnk-I8EyPXJ
+ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AXLWYwdTosnk-I8EyPXJ
